@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaplek Scoreboard</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="app">
+        <header class="header">
+            <div>
+                <p class="eyebrow">DOMINO • SCORE MANAGEMENT</p>
+                <h1>GAPLEK<span>.</span></h1>
+                <p class="subtitle">Scoreboard Pertandingan</p>
+            </div>
+
+            <div class="match-status">
+                <span class="status-dot"></span>
+                <span id="gameStatus">PERTANDINGAN BERLANGSUNG</span>
+            </div>
+        </header>
+
+        <main>
+            <section class="top-panel">
+                <div class="match-card">
+                    <div>
+                        <p class="section-label">PERTANDINGAN</p>
+                        <h2 id="matchNumber">01 <span>/ 10</span></h2>
+                        <p class="muted" id="matchDescription">
+                            Menuju pertandingan berikutnya
+                        </p>
+                    </div>
+
+                    <div class="progress-area">
+                        <div class="progress-info">
+                            <span>PROGRES</span>
+                            <span id="progressText">0%</span>
+                        </div>
+
+                        <div class="progress-track">
+                            <div class="progress-fill" id="progressFill"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dealer-card">
+                    <div class="dealer-icon">♠</div>
+                    <div>
+                        <p class="section-label">PENGOCOK SEKARANG</p>
+                        <h2 id="dealerName">Pemain 1</h2>
+                        <p class="muted" id="dealerInfo">
+                            Skor sementara tertinggi
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="section-heading">
+                <div>
+                    <p class="section-label">LIVE SCOREBOARD</p>
+                    <h2>Daftar Pemain</h2>
+                </div>
+
+                <div class="target-label">
+                    <span class="target-dot"></span>
+                    Target: 101 poin
+                </div>
+            </section>
+
+            <section class="players-grid" id="players"></section>
+
+            <section class="bottom-grid">
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-label">KLASEMEN</p>
+                            <h2>Peringkat Bintang</h2>
+                        </div>
+                        <span class="trophy">🏆</span>
+                    </div>
+
+                    <div id="rankingList" class="ranking-list"></div>
+                </div>
+
+                <div class="panel">
+                    <div class="panel-heading">
+                        <div>
+                            <p class="section-label">RIWAYAT</p>
+                            <h2>Aktivitas Terakhir</h2>
+                        </div>
+                    </div>
+
+                    <div id="historyList" class="history-list">
+                        <p class="empty-state">
+                            Belum ada aktivitas permainan.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="rules-panel">
+                <div>
+                    <p class="section-label">PANDUAN PERMAINAN</p>
+                    <h2>Aturan Scoreboard</h2>
+                </div>
+
+                <div class="rules-grid">
+                    <div class="rule-item">
+                        <span class="rule-number">01</span>
+                        <p>
+                            Skor positif adalah poin buruk, sedangkan
+                            skor negatif adalah poin baik.
+                        </p>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">02</span>
+                        <p>
+                            Pemain dengan skor sementara paling tinggi
+                            menjadi pengocok.
+                        </p>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">03</span>
+                        <p>
+                            Ketika pemain mencapai 101 poin, pertandingan
+                            selesai dan skor direset.
+                        </p>
+                    </div>
+
+                    <div class="rule-item">
+                        <span class="rule-number">04</span>
+                        <p>
+                            Pemain dengan skor terendah mendapatkan
+                            satu bintang.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section class="footer-actions">
+                <button class="btn-secondary" onclick="resetAllData()">
+                    Reset Semua Data
+                </button>
+            </section>
+        </main>
+
+        <footer>
+            GAPLEK SCOREBOARD <span>•</span> DOMINO MANAGEMENT
+        </footer>
+    </div>
+
+    <div class="modal-overlay" id="resultModal">
+        <div class="result-modal">
+            <div class="result-icon">🏆</div>
+
+            <p class="section-label">PERTANDINGAN SELESAI</p>
+
+            <h2 id="resultTitle">Pemenang!</h2>
+
+            <p id="resultDescription"></p>
+
+            <button class="btn-primary" onclick="closeResultModal()">
+                Lanjutkan
+            </button>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
